@@ -14,7 +14,7 @@ CREATE TABLE persona (
 -- -----------------------------------------------------------------------------
 -- persona
 -- -----------------------------------------------------------------------------
-INSERT INTO persona 
+INSERT INTO persona
 (id  , nombre   , apellido , edad, tipo      , habilidad       , rango, cultivo  ) VALUES
 (1   , 'carlos' , 'calvo'  , 22  , 'Guerrero', 'cortar cabezas', 1    , NULL     ),
 (2   , 'juan'   , 'garcia' , 25  , 'Guerrero', 'cortar brazos' , 2    , NULL     ),
