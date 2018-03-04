@@ -1,4 +1,4 @@
-package com.demo.herencia.domain;
+package com.demooo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;

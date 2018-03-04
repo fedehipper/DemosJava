@@ -1,11 +1,12 @@
-package com.demo.herencia;
+package com.demooo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HerenciaApplication {
+public class ApiEjemploApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(HerenciaApplication.class, args);
+		SpringApplication.run(ApiEjemploApplication.class, args);
 	}
 }

@@ -1,15 +1,16 @@
-package com.demo.herencia.service;
+package com.demooo.service;
 
-import com.demo.herencia.HerenciaApplicationTests;
-import com.demo.herencia.domain.Aldeano;
-import com.demo.herencia.domain.Guerrero;
-import com.demo.herencia.domain.Tipo;
+
+import com.demooo.ApiEjemploApplicationTests;
+import com.demooo.domain.Aldeano;
+import com.demooo.domain.Guerrero;
+import com.demooo.domain.Tipo;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class PersonaRepositoryTest extends HerenciaApplicationTests {
+public class PersonaRepositoryTest extends ApiEjemploApplicationTests {
 
     @Autowired
     AldeanoService aldeanoService;

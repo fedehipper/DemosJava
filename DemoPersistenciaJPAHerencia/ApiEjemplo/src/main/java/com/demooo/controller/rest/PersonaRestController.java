@@ -1,9 +1,9 @@
-package com.demo.herencia.controller.rest;
+package com.demooo.controller.rest;
 
-import com.demo.herencia.domain.Aldeano;
-import com.demo.herencia.domain.Guerrero;
-import com.demo.herencia.service.AldeanoService;
-import com.demo.herencia.service.GuerreroService;
+import com.demooo.domain.Aldeano;
+import com.demooo.domain.Guerrero;
+import com.demooo.service.AldeanoService;
+import com.demooo.service.GuerreroService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

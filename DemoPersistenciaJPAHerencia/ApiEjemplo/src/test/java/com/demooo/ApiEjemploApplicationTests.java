@@ -1,4 +1,4 @@
-package com.demo.herencia;
+package com.demooo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,13 +7,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class HerenciaApplicationTests {
+public class ApiEjemploApplicationTests {
 
-  
     @Test
     public void contextLoads() {
     }
-
-   
 
 }

@@ -1,6 +1,6 @@
-package com.demo.herencia.repository;
+package com.demooo.repository;
 
-import com.demo.herencia.domain.Aldeano;
+import com.demooo.domain.Aldeano;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 

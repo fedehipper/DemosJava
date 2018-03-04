@@ -1,7 +1,7 @@
-package com.demo.herencia.service;
+package com.demooo.service;
 
-import com.demo.herencia.domain.Aldeano;
-import com.demo.herencia.repository.AldeanoRepository;
+import com.demooo.domain.Aldeano;
+import com.demooo.repository.AldeanoRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 

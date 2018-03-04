@@ -1,5 +1,6 @@
-package com.demo.herencia.domain;
+package com.demooo.domain;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,7 +12,7 @@ import lombok.Data;
 @Entity
 @Data
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Persona {
+public abstract class Persona implements Serializable {
     
     @Id
     protected Long id;

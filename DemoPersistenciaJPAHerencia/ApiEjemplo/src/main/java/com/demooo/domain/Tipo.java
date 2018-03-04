@@ -1,4 +1,4 @@
-package com.demo.herencia.domain;
+package com.demooo.domain;
 
 public enum Tipo {
 

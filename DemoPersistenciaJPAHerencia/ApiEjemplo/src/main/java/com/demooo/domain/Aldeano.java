@@ -1,4 +1,4 @@
-package com.demo.herencia.domain;
+package com.demooo.domain;
 
 import javax.persistence.Entity;
 import lombok.Data;

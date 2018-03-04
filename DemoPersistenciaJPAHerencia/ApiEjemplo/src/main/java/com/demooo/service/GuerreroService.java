@@ -1,7 +1,7 @@
-package com.demo.herencia.service;
+package com.demooo.service;
 
-import com.demo.herencia.domain.Guerrero;
-import com.demo.herencia.repository.GuerreroRepository;
+import com.demooo.domain.Guerrero;
+import com.demooo.repository.GuerreroRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
