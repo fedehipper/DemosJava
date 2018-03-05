@@ -5,7 +5,7 @@ DROP TABLE aldeano IF EXISTS;
 DROP TABLE persona IF EXISTS;
 
 CREATE TABLE persona (
-    id bigint primary key,
+    id bigint primary key auto_increment,
     nombre varchar (20),
     apellido varchar (20),
     edad int,
@@ -13,13 +13,13 @@ CREATE TABLE persona (
 );
 
 CREATE TABLE guerrero (
-    id bigint primary key,
+    id bigint primary key auto_increment,
     habilidad varchar (20),
     rango int
 );
 
 CREATE TABLE aldeano (
-    id bigint primary key,
+    id bigint primary key auto_increment,
     cultivo varchar (20)
 );
 
@@ -27,10 +27,10 @@ CREATE TABLE aldeano (
 -- persona
 -- -----------------------------------------------------------------------------
 INSERT INTO persona
-(id  , nombre   , apellido , edad, tipo      ) VALUES
-(1   , 'carlos' , 'calvo'  , 22  , 'GUERRERO'),
-(2   , 'juan'   , 'garcia' , 25  , 'GUERRERO'),
-(3   , 'julieta', 'granola', 20  , 'ALDEANO' );
+(nombre   , apellido , edad, tipo      ) VALUES
+('carlos' , 'calvo'  , 22  , 'GUERRERO'),
+('juan'   , 'garcia' , 25  , 'GUERRERO'),
+('julieta', 'granola', 20  , 'ALDEANO' );
 
 -- -----------------------------------------------------------------------------
 -- guerrero

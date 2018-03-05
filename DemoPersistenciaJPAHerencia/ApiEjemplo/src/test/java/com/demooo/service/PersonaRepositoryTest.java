@@ -1,6 +1,5 @@
 package com.demooo.service;
 
-
 import com.demooo.ApiEjemploApplicationTests;
 import com.demooo.domain.Aldeano;
 import com.demooo.domain.Guerrero;
@@ -21,7 +20,7 @@ public class PersonaRepositoryTest extends ApiEjemploApplicationTests {
     @Test
     public void buscarTodos_conAldeanos_devuelveTodosLosAldeanos() {
         List<Aldeano> aldeanos = aldeanoService.buscarTodos();
-        
+
         assertThat(new Aldeano(3L, "julieta", "granola", 20, Tipo.ALDEANO, "tomates"))
                 .isEqualToComparingFieldByField(aldeanos.get(0));
     }
