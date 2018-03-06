@@ -1,6 +1,7 @@
 package com.demooo.domain;
 
 import java.io.Serializable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,7 +16,7 @@ import lombok.Data;
 @Data
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Persona implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
@@ -24,16 +25,19 @@ public abstract class Persona implements Serializable {
     protected int edad;
     @Enumerated(EnumType.STRING)
     protected Tipo tipo;
-    
-    public Persona(Long id, String nombre, String apellido, int edad, Tipo tipo) {
+    @Embedded
+    protected Pueblo pueblo;
+
+    public Persona(Long id, String nombre, String apellido, int edad, Tipo tipo, Pueblo pueblo) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.tipo = tipo;
+        this.pueblo = pueblo;
     }
-    
-    public Persona() {   
+
+    public Persona() {
     }
-  
+
 }

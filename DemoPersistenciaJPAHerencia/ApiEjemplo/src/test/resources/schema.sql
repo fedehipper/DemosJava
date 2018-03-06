@@ -9,7 +9,9 @@ CREATE TABLE persona (
     nombre varchar (20),
     apellido varchar (20),
     edad int,
-    tipo varchar (20)
+    tipo varchar (20),
+    nombre_pueblo varchar (20),
+    poblacion int
 );
 
 CREATE TABLE guerrero (
@@ -27,10 +29,10 @@ CREATE TABLE aldeano (
 -- persona
 -- -----------------------------------------------------------------------------
 INSERT INTO persona
-(nombre   , apellido , edad, tipo      ) VALUES
-('carlos' , 'calvo'  , 22  , 'GUERRERO'),
-('juan'   , 'garcia' , 25  , 'GUERRERO'),
-('julieta', 'granola', 20  , 'ALDEANO' );
+(nombre   , apellido , edad, tipo      , nombre_pueblo, poblacion) VALUES
+('carlos' , 'calvo'  , 22  , 'GUERRERO', 'lomas'      , 1000     ),
+('juan'   , 'garcia' , 25  , 'GUERRERO', 'lomas'      , 1000     ),
+('julieta', 'granola', 20  , 'ALDEANO' , 'lomas'      , 1000     );
 
 -- -----------------------------------------------------------------------------
 -- guerrero
