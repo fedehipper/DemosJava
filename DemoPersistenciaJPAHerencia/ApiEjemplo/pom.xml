@@ -25,11 +25,11 @@
             <artifactId>flyway-core</artifactId>
             <version>4.2.0</version>
         </dependency>
-<!--        <dependency>
+        <dependency>
             <groupId>org.flywaydb.flyway-test-extensions</groupId>
             <artifactId>flyway-spring-test</artifactId>
             <version>4.2.0.1</version>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
