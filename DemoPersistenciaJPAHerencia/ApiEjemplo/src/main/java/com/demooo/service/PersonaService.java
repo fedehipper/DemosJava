@@ -1,6 +1,7 @@
 package com.demooo.service;
 
 import com.demooo.domain.Persona;
+import com.demooo.excepcion.ErrorException;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class PersonaService {
             if (persona.isPresent()) {
                 return (Persona) persona.get();
             } else {
-                throw new NoSuchElementException("Se ingreso un id inexistente");
+                throw new ErrorException("UND001");
             }
         } else if (tipoPersona.equals("guerreros")) {
             Optional persona = guerreroService.buscarPorId(idPersona);
