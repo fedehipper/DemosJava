@@ -6,7 +6,6 @@ import com.demooo.domain.Persona;
 import com.demooo.service.AldeanoService;
 import com.demooo.service.GuerreroService;
 import com.demooo.service.PersonaService;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +25,13 @@ public class PersonaRestController {
     private PersonaService personaService;
 
     @GetMapping("/{tipoPersona}/{idPersona}")
-    public Persona obtenerPersonas(@PathVariable String tipoPersona, @PathVariable Long idPersona) {
+    public Persona obtenerPersonasPorTipoYId(@PathVariable String tipoPersona, @PathVariable Long idPersona) {
         return personaService.buscarPorTipoPersonaYIdPersonsa(tipoPersona, idPersona);
+    }
+
+    @GetMapping
+    public List obtenerPersonas() {
+        return personaService.buscarTodas();
     }
 
     @GetMapping("/guerreros")
@@ -43,14 +47,6 @@ public class PersonaRestController {
     @GetMapping("/{idPersona}")
     public Persona obtenerPersonaPorId(@PathVariable Long idPersona) {
         return personaService.buscarPorId(idPersona);
-    }
-
-    @GetMapping
-    public List obtenerPersonas() {
-        List personas = new ArrayList<>();
-        aldeanoService.buscarTodos().forEach(aldeano -> personas.add(aldeano));
-        guerreroService.buscarTodos().forEach(guerrero -> personas.add(guerrero));
-        return personas;
     }
 
 }

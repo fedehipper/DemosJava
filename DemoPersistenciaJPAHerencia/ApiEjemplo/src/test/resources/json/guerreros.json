@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "nombre": "carlos",
+        "apellido": "calvo",
+        "edad": 22,
+        "tipo": "GUERRERO",
+        "pueblo": {
+            "nombrePueblo": "lomas",
+            "poblacion": 1000
+        },
+        "habilidad": "cortar cabezas",
+        "rango": 1
+    },
+    {
+        "id": 2,
+        "nombre": "juan",
+        "apellido": "garcia",
+        "edad": 25,
+        "tipo": "GUERRERO",
+        "pueblo": {
+            "nombrePueblo": "lomas",
+            "poblacion": 1000
+        },
+        "habilidad": "cortar brazos",
+        "rango": 2
+    }
+]

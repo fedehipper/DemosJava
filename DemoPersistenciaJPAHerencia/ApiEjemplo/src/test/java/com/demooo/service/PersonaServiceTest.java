@@ -3,9 +3,11 @@ package com.demooo.service;
 import com.demooo.ApiEjemploApplicationTests;
 import com.demooo.domain.Aldeano;
 import com.demooo.domain.Guerrero;
+import com.demooo.domain.Persona;
 import com.demooo.domain.Pueblo;
 import com.demooo.domain.Tipo;
 import com.demooo.excepcion.ErrorException;
+import static java.util.Arrays.asList;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
@@ -25,21 +27,20 @@ public class PersonaServiceTest extends ApiEjemploApplicationTests {
     @Test
     public void buscarTodos_conAldeanos_devuelveTodosLosAldeanos() {
         List<Aldeano> aldeanos = aldeanoService.buscarTodos();
-
         assertThat(new Aldeano("julieta", "granola", 20, Tipo.ALDEANO, new Pueblo("lomas", 1000), "tomates"))
                 .isEqualToComparingOnlyGivenFields(aldeanos.get(0));
     }
 
     @Test
     public void buscarPorId_conAldeanoExistente_retornaAldeanoConEseId() {
-        Aldeano aldeano = aldeanoService.buscarPorId(3L).get();
+        Aldeano aldeano = aldeanoService.buscarPorId(3L);
         assertThat(new Aldeano("julieta", "granola", 20, Tipo.ALDEANO, new Pueblo("lomas", 1000), "tomates"))
                 .isEqualToComparingOnlyGivenFields(aldeano);
     }
 
     @Test
     public void buscarPorId_conGuerreroExistente_retornaGuerreroConEseId() {
-        Guerrero guerrero = guerreroService.buscarPorId(1L).get();
+        Guerrero guerrero = guerreroService.buscarPorId(1L);
         assertThat(new Guerrero("carlos", "calvo", 22, Tipo.GUERRERO, new Pueblo("lomas", 1000), "cortar cabezas", 1))
                 .isEqualToComparingOnlyGivenFields(guerrero);
     }
@@ -91,6 +92,12 @@ public class PersonaServiceTest extends ApiEjemploApplicationTests {
     @Test(expected = ErrorException.class)
     public void buscarPorTipoPersonaYIdPersonsa_conTipoPersonaNoExisteYIdNo_lanzaExcepcion() {
         personaService.buscarPorTipoPersonaYIdPersonsa("saraza", 999L);
+    }
+    
+    @Test
+    public void buscarTodas_sinParametros_devuelveTodasLasPersonasExistentes() {
+        List<Persona> personas = personaService.buscarTodas();
+        assertThat(personas).extracting("nombre").asList().isEqualTo(asList("julieta", "carlos", "juan"));
     }
 
 }

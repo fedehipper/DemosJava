@@ -1,0 +1,35 @@
+= API REST de Ejemplo
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+ 
+= Ejemplo de personas
+
+Todas las consultas aceptan y devuelven el contenido en formato JSON o XML. Por default se utiliza JSON.
+Para configurar el formato XML deben enviarse los HTTP Header
+
+* `Accept: application/xml` al recibir respuestas
+* `Content-Type: application/xml` al informar contenido
+
+== Lista de personas
+  
+=== Obtener
+ 
+==== Estructura de la petición
+ 
+include::{snippets}/PersonaRestControllerTest/obtenerPersonasTest/http-request.adoc[]
+ 
+==== Parámetros de la petición
+ 
+include::{snippets}/PersonaRestControllerTest/obtenerPersonasTest/request-parameters.adoc[]
+ 
+==== Campos de respuesta
+ 
+include::{snippets}/PersonaRestControllerTest/obtenerPersonasTest/response-fields.adoc[]
+ 
+==== Ejemplo de respuesta
+ 
+include::{snippets}/PersonaRestControllerTest/obtenerPersonasTest/http-response.adoc[]

@@ -1,0 +1,14 @@
+[
+    {
+        "id": 3,
+        "nombre": "julieta",
+        "apellido": "granola",
+        "edad": 20,
+        "tipo": "ALDEANO",
+        "pueblo": {
+            "nombrePueblo": "lomas",
+            "poblacion": 1000
+        },
+        "cultivo": "tomates"
+    }
+]

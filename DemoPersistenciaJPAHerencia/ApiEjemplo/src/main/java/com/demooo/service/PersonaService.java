@@ -4,7 +4,8 @@ import com.demooo.domain.Aldeano;
 import com.demooo.domain.Guerrero;
 import com.demooo.domain.Persona;
 import com.demooo.excepcion.ErrorException;
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +18,20 @@ public class PersonaService {
     @Autowired
     private AldeanoService aldeanoService;
 
+    public List<Persona> buscarTodas() {
+        List personas = new ArrayList<>();
+        aldeanoService.buscarTodos().forEach(aldeano -> personas.add(aldeano));
+        guerreroService.buscarTodos().forEach(guerrero -> personas.add(guerrero));
+        return personas;
+    }
+
     public Persona buscarPorId(Long idPersona) {
-        Optional<Aldeano> aldeano = aldeanoService.buscarPorId(idPersona);
-        Optional<Guerrero> guerrero = guerreroService.buscarPorId(idPersona);
-        if (aldeano.isPresent()) {
-            return aldeano.get();
-        } else if (guerrero.isPresent()) {
-            return guerrero.get();
+        Aldeano aldeano = aldeanoService.buscarPorId(idPersona);
+        Guerrero guerrero = guerreroService.buscarPorId(idPersona);
+        if (aldeano != null) {
+            return aldeano;
+        } else if (guerrero != null) {
+            return guerrero;
         } else {
             throw new ErrorException("UND003", "No existe la persona.");
         }
@@ -31,16 +39,16 @@ public class PersonaService {
 
     public Persona buscarPorTipoPersonaYIdPersonsa(String tipoPersona, Long idPersona) {
         if (tipoPersona.equals("aldeanos")) {
-            Optional persona = aldeanoService.buscarPorId(idPersona);
-            if (persona.isPresent()) {
-                return (Persona) persona.get();
+            Persona persona = aldeanoService.buscarPorId(idPersona);
+            if (persona != null) {
+                return (Persona) persona;
             } else {
                 throw new ErrorException("UND001", "No existe el aldeano.");
             }
         } else if (tipoPersona.equals("guerreros")) {
-            Optional persona = guerreroService.buscarPorId(idPersona);
-            if (persona.isPresent()) {
-                return (Persona) persona.get();
+            Persona persona = guerreroService.buscarPorId(idPersona);
+            if (persona != null) {
+                return (Persona) persona;
             } else {
                 throw new ErrorException("UND002", "No existe el guerrero.");
             }
