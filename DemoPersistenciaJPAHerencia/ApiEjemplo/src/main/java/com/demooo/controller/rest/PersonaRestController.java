@@ -39,7 +39,7 @@ public class PersonaRestController {
     public List<Aldeano> obtenerAldeanos() {
         return aldeanoService.buscarTodos();
     }
-    
+
     @GetMapping("/{idPersona}")
     public Persona obtenerPersonaPorId(@PathVariable Long idPersona) {
         return personaService.buscarPorId(idPersona);
