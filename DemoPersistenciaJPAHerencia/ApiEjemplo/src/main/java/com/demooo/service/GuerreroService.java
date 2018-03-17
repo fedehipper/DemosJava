@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class GuerreroService {
 
     @Autowired
-    GuerreroRepository guerreroRepository;
+    private GuerreroRepository guerreroRepository;
 
     public Optional<Guerrero> buscarPorId(Long id) {
         return guerreroRepository.findById(id);

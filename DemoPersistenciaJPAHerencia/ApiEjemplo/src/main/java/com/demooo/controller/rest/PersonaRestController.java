@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonaRestController {
 
     @Autowired
-    AldeanoService aldeanoService;
+    private AldeanoService aldeanoService;
     @Autowired
-    GuerreroService guerreroService;
+    private GuerreroService guerreroService;
     @Autowired
-    PersonaService personaService;
+    private PersonaService personaService;
 
     @GetMapping("/{tipoPersona}/{idPersona}")
     public Persona obtenerPersonas(@PathVariable String tipoPersona, @PathVariable Long idPersona) {

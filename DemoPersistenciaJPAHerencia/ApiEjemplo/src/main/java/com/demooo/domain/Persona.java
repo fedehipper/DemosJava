@@ -19,17 +19,16 @@ public abstract class Persona implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
-    protected String nombre;
-    protected String apellido;
-    protected int edad;
+    private Long id;
+    private String nombre;
+    private String apellido;
+    private int edad;
     @Enumerated(EnumType.STRING)
-    protected Tipo tipo;
+    private Tipo tipo;
     @Embedded
-    protected Pueblo pueblo;
+    private Pueblo pueblo;
 
-    public Persona(Long id, String nombre, String apellido, int edad, Tipo tipo, Pueblo pueblo) {
-        this.id = id;
+    public Persona(String nombre, String apellido, int edad, Tipo tipo, Pueblo pueblo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;

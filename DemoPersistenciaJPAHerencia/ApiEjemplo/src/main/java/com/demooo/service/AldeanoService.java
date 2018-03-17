@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class AldeanoService {
 
     @Autowired
-    AldeanoRepository aldeanoRepository;
+    private AldeanoRepository aldeanoRepository;
     
     public Optional<Aldeano> buscarPorId(Long id) {
         return aldeanoRepository.findById(id);
