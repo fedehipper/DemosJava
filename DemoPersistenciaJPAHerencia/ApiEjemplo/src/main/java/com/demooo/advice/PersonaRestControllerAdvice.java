@@ -13,8 +13,8 @@ public class PersonaRestControllerAdvice {
     
     @ExceptionHandler(ErrorException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
-    public ErrorVo handlePersonaErronea(Exception exception) throws IOException {
-        return new ErrorVo("UND001", "No existe la persona.");
+    public ErrorVo handlePersonaErronea(ErrorException exception) throws IOException {
+        return new ErrorVo(exception.getCodigo(), exception.getMessage());
     }
     
 }

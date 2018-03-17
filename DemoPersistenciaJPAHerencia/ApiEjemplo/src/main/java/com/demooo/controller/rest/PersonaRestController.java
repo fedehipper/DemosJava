@@ -26,8 +26,8 @@ public class PersonaRestController {
     PersonaService personaService;
 
     @GetMapping("/{tipoPersona}/{idPersona}")
-    public Persona obtenerGuerreros(@PathVariable String tipoPersona, @PathVariable Long idPersona) {
-        return personaService.buscarPorTipoPersonaEIdPersonsa(tipoPersona, idPersona);
+    public Persona obtenerPersonas(@PathVariable String tipoPersona, @PathVariable Long idPersona) {
+        return personaService.buscarPorTipoPersonaYIdPersonsa(tipoPersona, idPersona);
     }
 
     @GetMapping("/guerreros")
@@ -38,6 +38,11 @@ public class PersonaRestController {
     @GetMapping("/aldeanos")
     public List<Aldeano> obtenerAldeanos() {
         return aldeanoService.buscarTodos();
+    }
+    
+    @GetMapping("/{idPersona}")
+    public Persona obtenerPersonaPorId(@PathVariable Long idPersona) {
+        return personaService.buscarPorId(idPersona);
     }
 
     @GetMapping
