@@ -20,8 +20,8 @@ public class PersonaService {
 
     public List<Persona> buscarTodas() {
         List personas = new ArrayList<>();
-        aldeanoService.buscarTodos().forEach(aldeano -> personas.add(aldeano));
-        guerreroService.buscarTodos().forEach(guerrero -> personas.add(guerrero));
+        personas.addAll(aldeanoService.buscarTodos());
+        personas.addAll(guerreroService.buscarTodos());
         return personas;
     }
 

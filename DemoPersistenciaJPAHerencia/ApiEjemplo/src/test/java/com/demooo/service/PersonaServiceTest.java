@@ -17,10 +17,8 @@ public class PersonaServiceTest extends ApiEjemploApplicationTests {
 
     @Autowired
     private AldeanoService aldeanoService;
-
     @Autowired
     private GuerreroService guerreroService;
-
     @Autowired
     private PersonaService personaService;
 
@@ -33,14 +31,14 @@ public class PersonaServiceTest extends ApiEjemploApplicationTests {
 
     @Test
     public void buscarPorId_conAldeanoExistente_retornaAldeanoConEseId() {
-        Aldeano aldeano = aldeanoService.buscarPorId(3L);
+        Persona persona = aldeanoService.buscarPorId(3L);
         assertThat(new Aldeano("julieta", "granola", 20, Tipo.ALDEANO, new Pueblo("lomas", 1000), "tomates"))
-                .isEqualToComparingOnlyGivenFields(aldeano);
+                .isEqualToComparingOnlyGivenFields(persona);
     }
 
     @Test
     public void buscarPorId_conGuerreroExistente_retornaGuerreroConEseId() {
-        Guerrero guerrero = guerreroService.buscarPorId(1L);
+        Persona guerrero = guerreroService.buscarPorId(1L);
         assertThat(new Guerrero("carlos", "calvo", 22, Tipo.GUERRERO, new Pueblo("lomas", 1000), "cortar cabezas", 1))
                 .isEqualToComparingOnlyGivenFields(guerrero);
     }
@@ -96,8 +94,9 @@ public class PersonaServiceTest extends ApiEjemploApplicationTests {
     
     @Test
     public void buscarTodas_sinParametros_devuelveTodasLasPersonasExistentes() {
-        List<Persona> personas = personaService.buscarTodas();
-        assertThat(personas).extracting("nombre").asList().isEqualTo(asList("julieta", "carlos", "juan"));
+        assertThat(personaService.buscarTodas())
+                .extracting("nombre").asList()
+                .isEqualTo(asList("julieta", "carlos", "juan"));
     }
 
 }

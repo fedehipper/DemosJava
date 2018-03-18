@@ -41,38 +41,39 @@ public class PersonaRestControllerTest extends ApiEjemploApplicationTests {
 
     @Test
     public void obtenerPersonasTest() throws Exception {
-        Mockito.when(personaService.buscarTodas())
-                .thenReturn(leerPeronasDesdeJson());
+        Mockito.when(personaService.buscarTodas()).thenReturn(leerPeronasDesdeJson());
         mockMvc
                 .perform(get("/personas").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andDo(document("{ClassName}/{methodName}",
-                        preprocessResponse(prettyPrint()),
-                        responseFields(
-                                fieldWithPath("[]").description("Personas.")).andWithPrefix("[].",
-                                fieldWithPath("id").description("Id de la persona."),
-                                fieldWithPath("nombre").description("Nombre de la persona."),
-                                fieldWithPath("apellido").description("Apellido de la persona."),
-                                fieldWithPath("tipo").description("Tipo de persona.")
-                        )));
+                .andDo(
+                        document("{ClassName}/{methodName}",
+                                preprocessResponse(prettyPrint()),
+                                responseFields(
+                                        fieldWithPath("[]").description("Personas.")).andWithPrefix("[].",
+                                        fieldWithPath("id").description("Id de la persona."),
+                                        fieldWithPath("nombre").description("Nombre de la persona."),
+                                        fieldWithPath("apellido").description("Apellido de la persona."),
+                                        fieldWithPath("tipo").description("Tipo de persona."),
+                                        fieldWithPath("cultivo").description("Tipo de cultivo."),
+                                        fieldWithPath("rango").description("Rango de la persona."),
+                                        fieldWithPath("habilidad").description("Habilidad de la persona."),
+                                        fieldWithPath("pueblo").description("Pueblo de la persona.")
+                                ))
+                );
     }
 
     private List<Persona> leerPeronasDesdeJson() throws IOException {
-        List<Aldeano> aldeanos = leerAldeanosDesdeJson("aldeanos");
-        List<Guerrero> guerreros = leerGuerrerosDesdeJson("guerreros");
+        List<Aldeano> aldeanos = asList(objectMapper.readValue(leerDeJson("aldeanos"), Aldeano[].class));
+        List<Guerrero> guerreros = asList(objectMapper.readValue(leerDeJson("guerreros"), Guerrero[].class));
         List<Persona> personas = new ArrayList<>();
-        aldeanos.forEach(aldeano -> personas.add(aldeano));
-        guerreros.forEach(guerrero -> personas.add(guerrero));
+        personas.addAll(aldeanos);
+        personas.addAll(guerreros);
         return personas;
     }
 
-    private List<Guerrero> leerGuerrerosDesdeJson(String nombreJson) throws IOException {
-        return asList(objectMapper.readValue(new File("src/test/resources/json/" + nombreJson + ".json"), Guerrero[].class));
-    }
-
-    private List<Aldeano> leerAldeanosDesdeJson(String nombreJson) throws IOException {
-        return asList(objectMapper.readValue(new File("src/test/resources/json/" + nombreJson + ".json"), Aldeano[].class));
+    private File leerDeJson(String nombreJson) {
+        return new File("src/test/resources/json/" + nombreJson + ".json");
     }
 
 }
